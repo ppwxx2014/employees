@@ -60,6 +60,7 @@ public class EmployeesDao {
 			DBHelp dbHelp = new DBHelp();
 			conn = dbHelp.getConnection(url,dbUser,dbPw);
 			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, limit);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
 				Employees employees = new Employees();

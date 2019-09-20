@@ -23,7 +23,7 @@ public class GetEmployeesListServlet extends HttpServlet {
 				}
 			System.out.println("보여줄 갯수 : " + limit);
 			
-			// list를 보여줌
+			// servlet의 요청을 받고 model에서 Dao호출
 			employeesDao = new EmployeesDao();
 			List<Employees> list = employeesDao.selectEmployeesListByLimit(limit);
 			
@@ -31,6 +31,7 @@ public class GetEmployeesListServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			
 			// forward해줄 주소 입력
-			request.getRequestDispatcher("/WEB-INF/views/employees/employeesList.jsp").forward(request, response);
+			String path = "/WEB-INF/views/employees/employeesList.jsp"; // view 주소
+			request.getRequestDispatcher(path).forward(request, response);
 	}
 }
