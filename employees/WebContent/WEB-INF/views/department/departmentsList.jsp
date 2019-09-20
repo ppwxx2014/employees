@@ -35,7 +35,7 @@
 		<p>부서 목록 리스트</p>
 		<p>모든 부서리스트 입니다.</p>
 	</div>
-	<div style = float:right><button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button></div>
+	<div style = float:right><button class = "btn btn-success" onclick = "location.href ='${pageContext.request.contextPath}/index'">메인화면</button></div>
 	<table class = "table table-hover" style = "text-align : center">
 	<div></div>
 		<thead class = "table-info">	

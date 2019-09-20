@@ -7,6 +7,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -20,17 +21,18 @@
 <div class = "container">
 
 	<div style = "aglign : center">
+		<h1>메인 페이지입니다!~</h1>
 		<h1>카테고리를 선택해 주세요~</h1>
 	</div>
 	<!-- 목록 선택 리스트 -->
-	<div>
-		<ul>
-						<!-- EL방법으로 프로젝트명까지 절대주소 찾아줌-->
-			<li><a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록</a>
+					<!-- EL방법으로 프로젝트명까지 절대주소 찾아줌-->
+	<div class = "container">
+	<a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록
 			
-			<li><a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a>
-		</ul>
+	<a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록
 	</div>
 </div>
+
 </body>
 </html>
+
