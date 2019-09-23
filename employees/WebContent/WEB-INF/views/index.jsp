@@ -22,15 +22,53 @@
 
 	<div style = "aglign : center">
 		<h1>메인 페이지입니다!~</h1>
+		<hr width = "100%" color = "blue" size = "1">
+		<table border = "1">
+			<thead>
+				<tr>
+					<th>테이블이름</th>
+					<th>전체 행의 수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>departments</td>
+					<td>${departmentsRowCount}</td>
+				</tr>
+				<tr>
+					<td>employees</td>
+					<td>${employeesRowCount}</td>
+				</tr>
+				<tr>
+					<td>dept_manager</td>
+					<td>${deptManagerRowCount}</td>
+				</tr>
+				<tr>
+					<td>dept_emp</td>
+					<td>${deptEmpRowCount}</td>
+				</tr>
+				<tr>
+					<td>titles</td>
+					<td>${titlesRowCount}</td>
+				</tr>
+				<tr>
+					<td>salaries</td>
+					<td>${salariesRowCount}</td>
+				</tr>
+			</tbody>
+		</table>
+	<hr width = "100%" color = "blue" size = "1">
 		<h1>카테고리를 선택해 주세요~</h1>
+	<hr width = "100%" color = "blue" size = "1">	
 	</div>
 	<!-- 목록 선택 리스트 -->
 					<!-- EL방법으로 프로젝트명까지 절대주소 찾아줌-->
 	<div class = "container">
-	<a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록
+	<a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록</a>
 			
-	<a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록
-	
+	<a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a>
+	</div>
+	<hr width = "100%" color = "blue" size = "1">
 	<!-- 이름으로 오름차순, 내림차순 보기 -->
 	<div>
 		<br>
@@ -38,7 +76,6 @@
 		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=desc">이름 내림차순 보기(limit 50)</a>
 	</div>
 	</div>
-</div>
 
 </body>
 </html>
