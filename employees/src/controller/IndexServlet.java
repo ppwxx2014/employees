@@ -25,7 +25,7 @@ public class IndexServlet extends HttpServlet {
 		
 		request.setAttribute("employeesRowCount", employeesRowCount);
 		// request에 employeesRowCount를 저장함 (MAP타입) -> 참조타입으로 저장해야 하지만, Wrapper클래스에서 auto-boxing되서 Integer타입으로 자동 형변환됨
-		
+		 
 		// /WEB-INF/views/index.jsp
 		// RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/index.jsp");	

@@ -15,13 +15,16 @@ public class EmployeesDao {
 	public int selectEmployeesCount() {
 		int count = 0;
 		final String sql = "SELECT COUNT(*) cnt FROM employees";
+		String url = "jdbc:mariadb://127.0.0.1:3306/employees";
+		String dbUser = "root";
+		String dbPw = "java1234";
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees","root","java1234");
+			DBHelp dbHelp = new DBHelp();
+			conn = dbHelp.getConnection(url,dbUser,dbPw);
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
@@ -83,6 +86,51 @@ public class EmployeesDao {
 				e.printStackTrace();
 			}
 		}
+		return list;
+	}
+	
+	// 사원의 이름을 오름차순, 내림차순 보기
+	public List<Employees> selectEmployeesListOrderBy(String order) {
+		List<Employees> list = new ArrayList<Employees>(); // 다형성
+		String url = "jdbc:mariadb://127.0.0.1:3306/employees";
+		String dbUser = "root";
+		String dbPw = "java1234";
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		if(order.equals("asc")) {
+			sql = "SELECT emp_no, birth_date, first_name, last_name, gender, hire_date FROM employees ORDER BY first_name, last_name ASC LIMIT 50";
+		} else if(order.equals("desc")) {
+			sql = "SELECT emp_no, birth_date, first_name, last_name, gender, hire_date FROM employees ORDER BY first_name, last_name DESC LIMIT 50";
+		}
+		// db연결을 도와주는 메소드 호출
+		try {
+			DBHelp dbHelp = new DBHelp();
+			conn = dbHelp.getConnection(url,dbUser,dbPw);
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+					Employees employees = new Employees();
+					employees.setEmpNo(rs.getInt("emp_no"));
+					employees.setBirthDate(rs.getString("birth_date"));
+					employees.setFirstName(rs.getString("first_name"));
+					employees.setLastName(rs.getString("last_name"));
+					employees.setGender(rs.getString("gender"));
+					employees.setHireDate(rs.getString("hire_date"));
+					list.add(employees);
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+			try { // 메모리 낭비를 막기 위해 사용 종료
+					rs.close();
+					stmt.close();
+					conn.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
 		return list;
 	}
 }

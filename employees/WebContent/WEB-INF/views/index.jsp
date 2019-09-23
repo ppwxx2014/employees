@@ -30,6 +30,13 @@
 	<a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록
 			
 	<a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록
+	
+	<!-- 이름으로 오름차순, 내림차순 보기 -->
+	<div>
+		<br>
+		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=asc">이름 오름차순 보기(limit 50)</a>
+		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=desc">이름 내림차순 보기(limit 50)</a>
+	</div>
 	</div>
 </div>
 
