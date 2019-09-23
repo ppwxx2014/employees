@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import vo.DBHelp;
 
 public class SalariesDao {
+	// salaries테이블의 총 갯수
 	public int selectSalariesCount() {
 		int count = 0;
 		final String sql = "SELECT COUNT(*) cnt FROM salaries";

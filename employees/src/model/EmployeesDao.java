@@ -12,6 +12,7 @@ import vo.Department;
 import vo.Employees;
 
 public class EmployeesDao {
+	// employees테이블의 총 갯수 
 	public int selectEmployeesCount() {
 		int count = 0;
 		final String sql = "SELECT COUNT(*) cnt FROM employees";

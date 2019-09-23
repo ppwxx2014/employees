@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import vo.DBHelp;
 
 public class DeptManagerDao {
+	// deptManager테이블의 총 갯수
 	public int selectDeptManagerCount() {
 		int count = 0;
 		final String sql = "SELECT COUNT(*) cnt FROM dept_manager";
