@@ -3,6 +3,8 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import db.DBHelp;
 
@@ -29,4 +31,34 @@ public class TitlesDao {
 	      }
 	      return count;
 	   }
+	
+	// 중복을 제거한 직급 종류
+	public List<String> selectTitlesListDistinct() {
+		List<String> list = new ArrayList<String>();
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		final String sql = "SELECT DISTINCT title FROM titles";
+		try {
+			conn = DBHelp.getConncetion();
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("title"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			//반납
+	    	  DBHelp.close(rs, stmt, conn);
+		}
+		return list;
+	}
 }
+
+
+
+
+
+
+

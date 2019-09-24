@@ -86,14 +86,17 @@
 		<li><a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a></li>
 	</ul>
 	</div>
-	<br>
 	<hr width = "100%" color = "blue" size = "1">
 	<!-- 이름으로 오름차순, 내림차순 보기 -->
 	<div>
-		<br>
 		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=asc">이름 오름차순 보기(limit 50)</a>
 		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=desc">이름 내림차순 보기(limit 50)</a>
 	</div>
+	
+	<ul>
+		<li style = "color : red"><a href = "${pageContext.request.contextPath}/titles/getTitlesListDistinct">직급 확인</a></li>
+		<li><a href = "${pageContext.request.contextPath}/salaries/getSalariesStatistics">연봉 통계값(count, sum, avg, max, min, std)</a></li>
+	</ul>
 </div>
 
 </body>
