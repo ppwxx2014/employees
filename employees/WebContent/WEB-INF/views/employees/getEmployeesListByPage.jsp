@@ -35,7 +35,7 @@
 	</div>
 	<div style = float:right><button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button></div>
 	<form method = "get" action = "${pageContext.request.contextPath}/employees/getEmployeesListByPage?currentPage="${currentPage}">
-		<select name = "limit">
+		<select name = "rowPerPage">
 		<!-- 페이지당 보여줄 갯수 선택 -->
 		<c:forEach var="i" begin = "10" end = "150" step = "10">
 		<!-- 변수, 시작값, 끝값, 반복할크기 -->
