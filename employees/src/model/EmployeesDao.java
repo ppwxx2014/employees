@@ -204,10 +204,10 @@ public class EmployeesDao {
 		   try {
 			   conn = DBHelp.getConncetion();
 			   stmt = conn.prepareStatement(sql);
-			   rs = stmt.executeQuery();
-			   int startRow = (currentPage - 1) * rowPerPage;
+			   int startRow = ( currentPage - 1 ) * rowPerPage;
 			   stmt.setInt(1, startRow);
 			   stmt.setInt(2, rowPerPage);
+			   rs = stmt.executeQuery();
 			   while(rs.next()) {
 				   Employees employees = new Employees();
 				   employees.setEmpNo(rs.getInt("emp_no"));

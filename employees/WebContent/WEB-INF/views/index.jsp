@@ -102,6 +102,9 @@
 		<li>
 			<a href="${pageContext.request.contextPath}/departments/getDepartmentCountByDeptNo">직원 수(부서별)</a>
 		</li>
+		<li>
+			<a href = "${pageContext.request.contextPath}/employees/getEmployeesListByPage">사원목록 페이징(10명씩)</a>
+		</li>
 	</ul>
 	<div>
 		<form method = "post" action = "${pageContext.request.contextPath}/employees/getEmployeesListBetween">

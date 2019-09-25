@@ -17,6 +17,7 @@ import vo.Employees;
 public class GetEmployeesListByPageServlet extends HttpServlet {
 	private EmployeesDao employeesDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		employeesDao = new EmployeesDao();
 		System.out.println("--------------사원리스트 페이징--------------");
 		// currentPage , rowPerPage받음
 		int currentPage = 1;
