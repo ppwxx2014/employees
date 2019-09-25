@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.SalariesDao;
 
-@WebServlet("/salaries/salariesStatistics")
+@WebServlet("/salaries/getSalariesStatistics")
 public class GetSalariesStatisticsServlet extends HttpServlet {
 	private SalariesDao salariesDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

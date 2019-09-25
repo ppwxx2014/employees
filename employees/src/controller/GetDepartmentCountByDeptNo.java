@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,24 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.DepartmentsDao;
-import vo.Department;
 
-
-@WebServlet("/departments/getDepartmentsList")
-public class GetDepartmentsListServlet extends HttpServlet {
+@WebServlet("/departments/getDepartmentCountByDeptNo")
+public class GetDepartmentCountByDeptNo extends HttpServlet {
 	private DepartmentsDao departmentsDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 요청을 받고 model호출
 		departmentsDao = new DepartmentsDao();
 		
-		List<Department> list = departmentsDao.selectDepartmentsList();
-		
-		// view로 보내기 전에 list를 request에 저장
+		//list에 return값을 복사하기 위해 생성
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		list = departmentsDao.selectDepartmentsCountByDeptNo();
+		//request 에 값을 담는다
 		request.setAttribute("list", list);
-		
-		// view로 포워딩해줌
-		request.getRequestDispatcher("/WEB-INF/views/department/departmentsList.jsp").forward(request, response);
+		//jsp로 forward
+		request.getRequestDispatcher("/WEB-INF/views/department/departmentsCountByDeptNo.jsp").forward(request, response);
 	}
 }
-
-
