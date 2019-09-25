@@ -103,6 +103,13 @@
 			<a href="${pageContext.request.contextPath}/departments/getDepartmentCountByDeptNo">직원 수(부서별)</a>
 		</li>
 	</ul>
+	<div>
+		<form method = "post" action = "${pageContext.request.contextPath}/employees/getEmployeesListBetween">
+			<input type = "number" name = "begin">~<input type = "number" name = "end">
+			<button type = "submit">사원 목록 between ... and ...</button>
+			(10001~499999)
+		</form>
+	</div>
 </div>
 
 </body>
