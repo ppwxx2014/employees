@@ -96,6 +96,12 @@
 	<ul>
 		<li style = "color : red"><a href = "${pageContext.request.contextPath}/titles/getTitlesListDistinct">직급 확인</a></li>
 		<li><a href = "${pageContext.request.contextPath}/salaries/getSalariesStatistics">연봉 통계값(count, sum, avg, max, min, std)</a></li>
+		<li>
+			<a href = "${pageContext.request.contextPath}/employees/getEmployeesCountByGender">사원 수(성별 group by gender)</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/departments/getDepartmentCountByDeptNo">직원 수(부서별)</a>
+		</li>
 	</ul>
 </div>
 

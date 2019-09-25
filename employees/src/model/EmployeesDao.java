@@ -1,14 +1,14 @@
 package model;
 
-import java.sql.*;
-import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import db.DBHelp;
-import vo.Department;
 import vo.Employees;
 
 public class EmployeesDao {
@@ -104,6 +104,33 @@ public class EmployeesDao {
 			}
 		return list;
 	}
+	
+	// 사원의 인구수(성별로 나눴을경우)
+	public List<Map<String, Object>> selectEmployeesCountGroupByGender() {
+		   List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		   Connection conn = null;
+		   PreparedStatement stmt = null;
+		   ResultSet rs = null;
+		   String sql = "SELECT gender, count(gender) as cnt from employees GROUP BY gender";
+		   
+		   try {
+			   conn = DBHelp.getConncetion();
+			   stmt = conn.prepareStatement(sql);
+			   rs = stmt.executeQuery();
+			   while(rs.next()) {
+				   Map<String, Object> map = new HashMap<String, Object>();
+				   map.put("gender", rs.getString("gender"));
+				   map.put("cnt", rs.getInt("cnt"));
+				   list.add(map);
+			   }
+			   
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   } finally {
+				   DBHelp.close(rs, stmt, conn);
+		   }
+		   return list;
+	   }
 }
 
 
