@@ -41,6 +41,7 @@
 		<thead class = "table-info">	
 			<th>부서 번호</th>
 			<th>부서 명</th>
+			<th>사원 수</th>
 		</thead>
 		<tbody>
 					<!-- Department클래스를 새로 만들때부터 get과set을 가짐 -->
