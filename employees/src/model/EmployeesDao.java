@@ -226,12 +226,41 @@ public class EmployeesDao {
 		   return list;
 	   }
 	   
+	   // 페이징 작업 마지막 페이지를 설정할 메서드
 	   public int selectLastPage(int rowPerPage) {
 		   int lastPage = this.selectEmployeesCount();
 		   if(lastPage % rowPerPage > 0) {
 			   lastPage++;
 		   }
 		   return lastPage;
+	   }
+	   
+	// 로그인시 empNo를 받을 메서드
+	   public String login(Employees employees) {
+		   Connection conn = null;
+		   PreparedStatement stmt = null;
+		   ResultSet rs = null;
+		   String sessionEmpNo = null;
+		   
+		   System.out.println(employees.getEmpNo());
+		   
+		   String sql = "select emp_no from employees where emp_no = ? and first_name = ? and last_name = ?";
+		   try {
+			   conn = DBHelp.getConncetion();
+			   stmt = conn.prepareStatement(sql);
+			   stmt.setInt(1, employees.getEmpNo());
+			   stmt.setString(2, employees.getFirstName());
+			   stmt.setString(3, employees.getLastName());
+			   rs = stmt.executeQuery();
+			   if(rs.next()) {
+				   sessionEmpNo = rs.getString("emp_no");
+			   }
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   } finally {
+			   DBHelp.close(rs, stmt, conn);
+		   }
+		   return sessionEmpNo;
 	   }
 }
 

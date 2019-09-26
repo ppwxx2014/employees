@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +38,9 @@
 
 	<div style = "aglign : center">
 		<h1>메인 페이지입니다!~</h1>
+		<c:if test = "${sessionEmpNo != null}">
+			<a href = "${pageContext.request.contextPath}/logout">로그아웃</a> <!-- LogoutServlet -->
+		</c:if>
 		<hr width = "100%" color = "blue" size = "1">
 		<div style = "color : gray">employees 데이터베이스의 총 테이블과 갯수</div>
 		<table class = "table tablr-horver">
@@ -104,6 +108,9 @@
 		</li>
 		<li>
 			<a href = "${pageContext.request.contextPath}/employees/getEmployeesListByPage">사원목록 페이징(10명씩)</a>
+		</li>
+		<li>
+			<a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList">부서-사원목록(20명씩)</a>
 		</li>
 	</ul>
 	<div>

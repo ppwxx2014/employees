@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.DepartmentsDao;
 
@@ -17,6 +18,15 @@ import model.DepartmentsDao;
 public class GetDepartmentCountByDeptNo extends HttpServlet {
 	private DepartmentsDao departmentsDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 세션을 받음
+		HttpSession session = request.getSession();
+		
+		// 처음 접속이거나, 로그인을 안했을 경우
+		if(session.getAttribute("sessionEmpNo") == null) {
+			response.sendRedirect(request.getContextPath()+"/login");
+			return;
+		}
+		
 		departmentsDao = new DepartmentsDao();
 		
 		//list에 return값을 복사하기 위해 생성

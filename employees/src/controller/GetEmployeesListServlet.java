@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.EmployeesDao;
 import vo.Employees;
@@ -16,6 +17,16 @@ import vo.Employees;
 public class GetEmployeesListServlet extends HttpServlet {
 	private EmployeesDao employeesDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 세션을 받음
+		HttpSession session = request.getSession();
+		
+		// 처음 접속이거나, 로그인을 안했을 경우
+		if(session.getAttribute("sessionEmpNo") == null) {
+			response.sendRedirect(request.getContextPath()+"/login");
+			return;
+		}
+		
 		// get방식을 통해 뒤에 붙을 limit값 설정
 			int limit = 30;
 			if(request.getParameter("limit") != null) {
