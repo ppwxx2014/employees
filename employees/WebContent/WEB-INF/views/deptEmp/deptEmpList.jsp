@@ -69,17 +69,20 @@
 		</tbody>
 	</table>
 	<!-- 이전, 다음 -->
-	<c:if test = "${currentPage > 1}"> <!-- ==if(currentPage > 1) -->
-		<a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${currentPage-1}&rowPerPage=${rowPerPage}">이전</a>
-	</c:if>
-	
-	<c:forEach var= "i" begin = "${currentPage}" end ="${currentPage+5}" step="1">
-		<a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${i}&rowPerPage=${rowPerPage}">${i}</a>
+	<c:forEach var= "i" begin = "${currentPage}" end ="${currentPage + 10}" step="1">
+	<!-- 현재 페이지 앞에 출력될 숫자 -->
+		<c:if test="${currentPage > 5}">
+			<a href="${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${i-5}&rowPerPage=${rowPerPage}">${i-5}</a>
+		</c:if>
+	</c:forEach>
+			
+	<c:forEach var= "i" begin = "1" end ="7" step="1">
+		<!-- 현재 페이지 뒤에 출력될 숫자 -->
+		<c:if test="${currentPage <= 5}">
+			<a href="${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${i}&rowPerPage=${rowPerPage}">${i}</a>
+		</c:if>
 	</c:forEach>
 	
-	<c:if test= "${currentPage < lastPage }">
-		<a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${currentPage+1}&rowPerPage=${rowPerPage}">다음</a>
-	</c:if>
 	<div>
 		<a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=1&rowPerPage=${rowPerPage}">첫 페이지로</a>
 	</div>

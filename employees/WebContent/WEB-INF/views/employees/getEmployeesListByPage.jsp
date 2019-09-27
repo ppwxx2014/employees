@@ -140,12 +140,16 @@
 	<c:if test = "${currentPage > 1}"> <!-- ==if(currentPage > 1) -->
 		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListByPage?currentPage=${currentPage-1}&rowPerPage=${rowPerPage}">이전</a>
 	</c:if>
+	
+	
 		
 	<c:forEach var= "i" begin = "${currentPage}" end ="${currentPage + 6}" step="1">
 		<!-- 현재 페이지 앞에 출력될 숫자 -->
 		<c:if test="${currentPage > 3}">
 			<a href="${pageContext.request.contextPath}/employees/getEmployeesListByPage?currentPage=${i-3}&rowPerPage=${rowPerPage}">${i-3}</a>
 		</c:if>
+	</c:forEach>
+	<c:forEach var= "i" begin = "1" end ="7" step="1">
 		<!-- 현재 페이지 뒤에 출력될 숫자 -->
 		<c:if test="${currentPage <= 3}">
 			<a href="${pageContext.request.contextPath}/employees/getEmployeesListByPage?currentPage=${i}&rowPerPage=${rowPerPage}">${i}</a>
