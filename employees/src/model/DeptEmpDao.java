@@ -84,4 +84,23 @@ public class DeptEmpDao {
 			   }
 			   return lastPage;
 		   }
+		   
+	  
+//	   SELECT 
+//		  count(case when 나이 >= 10 AND 나이< 20 then emp_no end) "10대",
+//		  count(case when 나이 >= 20 AND 나이< 30 then emp_no end) "20대",
+//		  count(case when 나이 >= 30 AND 나이< 40 then emp_no end) "30대",
+//		  count(case when 나이 >= 40 AND 나이< 50 then emp_no end) "40대",
+//		  count(case when 나이 >= 50 AND 나이< 60 then emp_no end) "50대",
+//		  count(case when 나이 >= 60 then emp_no end) "60대"
+//		FROM 
+//		# 현재 근무중인 사원의 나이 
+//			(select timestampdiff(year, e.birth_date, now()) "나이", e.emp_no 
+//			from dept_emp de 
+//			inner join employees e 
+//			on de.emp_no = e.emp_no 
+//			where de.to_date = '9999-01-01' 
+//			group by e.emp_no  having 나이<70) new_emp_age
+//		group by "나이";
+		   // 현재 근무중인 사원들의 나이대를 보여주는 쿼리
 }

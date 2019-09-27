@@ -76,7 +76,7 @@
 		</c:if>
 	</c:forEach>
 			
-	<c:forEach var= "i" begin = "1" end ="7" step="1">
+	<c:forEach var= "i" begin = "1" end ="6" step="1">
 		<!-- 현재 페이지 뒤에 출력될 숫자 -->
 		<c:if test="${currentPage <= 5}">
 			<a href="${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${i}&rowPerPage=${rowPerPage}">${i}</a>
