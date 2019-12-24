@@ -29,15 +29,15 @@
 	<form method = "post" action = "${pageContext.request.contextPath}/login">
 		<div>
 			first_name :
-			<input type = "text" name = "firstName">
+			<input type = "text" name = "firstName" value = "Georgi">
 		</div>
 		<div>
 			last_name :
-			<input type = "text" name = "lastName">
+			<input type = "text" name = "lastName" value = "Facello">
 		</div>
 		<div>
 			emp_no :
-			<input type = "text" name = "empNo">
+			<input type = "text" name = "empNo" value = "10001">
 		</div>
 		<div>
 			<button type = "submit">로그인</button>
