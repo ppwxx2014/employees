@@ -20,20 +20,18 @@
 	div {
 		text-align: center;
 	}
-	p {
-		font-size : x-large;
-		background-color: silver;
-	}
-
 </style>
 </head>
 <body>
 	<div class = "container" style = "margin: 10">
-	<div style = "background-color: silver">
+	<div>
 		<p>부서-사원 관계도입니다.</p>
 		<p>해당 사원이 근무하고있는 부서가 오름차순으로 표기 됩니다.</p>
 	</div>
-	<div style = float:right><button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button></div>
+	<div style = float:right>
+		<button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button>
+	</div>
+	
 	<form method = "get" action = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList?currentPage=${currentPage}">
 		<select name = "rowPerPage">
 			<!-- 페이지당 보여줄 갯수 선택 -->
@@ -46,7 +44,6 @@
 	</form>
 	
 	<table class = "table table-hover" style = "text-align : center">
-	<div></div>
 		<thead>
 			<tr>
 				<th>부서 번호</th>

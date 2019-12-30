@@ -22,20 +22,21 @@
 	}
 	p {
 		font-size : x-large;
-		background-color: silver;
 	}
 
 </style>
 </head>
 <body>
 	<div class = "container" style = "margin: 10">
-	<div style = "background-color: silver">
+	<div>
 		<p>사원 목록 리스트</p>
 		<p>사내 사원의 리스트를 보여줍니다</p>
 	</div>
-	<div style = float:right><button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button></div>
+	<div style = float:right>
+		<button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button>
+	</div>
+	
 	<table class = "table table-hover" style = "text-align : center">
-	<div></div>
 		<thead>
 			<tr>
 				<th>사원 번호</th>

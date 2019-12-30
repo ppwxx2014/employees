@@ -9,7 +9,8 @@ public class DBHelp {
 		// db를 연결해주는 메소드
 		public static Connection getConncetion() throws Exception{
 			 Class.forName("org.mariadb.jdbc.Driver");
-			 Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/maintain0105","maintain0105","maintain0105!");
+			 // Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/maintain0105","maintain0105","maintain0105!");
+			 Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/employees","root","java1234");
 			 return conn;
 		}
 		

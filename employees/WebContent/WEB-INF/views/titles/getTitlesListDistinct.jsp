@@ -19,10 +19,12 @@
 </head>
 <body>
 	<div class = "container" style = "margin: 10">
-	<div style = "background-color: silver">
+	<div>
 		<p>사내 직책 리스트입니다</p>
 	</div>
-	<div style = float:right><button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button>
+	
+	<div style = float:right>
+		<button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button>
 	</div>
 	
 	<br>
@@ -36,3 +38,4 @@
 	</div>
 </body>
 </html>
+

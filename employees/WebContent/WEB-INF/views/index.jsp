@@ -37,12 +37,11 @@
 <div class = "container">
 
 	<div style = "aglign : center">
-		<h1>메인 페이지입니다!~</h1>
-		<c:if test = "${sessionEmpNo != null}">
-			<a href = "${pageContext.request.contextPath}/logout">로그아웃</a> <!-- LogoutServlet -->
-		</c:if>
-		<hr width = "100%" color = "blue" size = "1">
-		<div style = "color : gray">employees 데이터베이스의 총 테이블과 갯수</div>
+		<h3>Employees Index</h3><span style = "float: right;">
+			<c:if test = "${sessionEmpNo != null}">
+				<a href = "${pageContext.request.contextPath}/logout">로그아웃</a> <!-- LogoutServlet -->
+			</c:if>
+		</span>
 		<table class = "table tablr-horver">
 			<thead>
 				<tr>
@@ -77,50 +76,44 @@
 				</tr>
 			</tbody>
 		</table>
-	<hr width = "100%" color = "blue" size = "1">
-		<h1>카테고리를 선택해 주세요~</h1>
+	<hr>
 	<br>
 	</div>
-	<!-- 목록 선택 리스트 -->
-					<!-- EL방법으로 프로젝트명까지 절대주소 찾아줌-->
+		
 	<div class = "container">
-	<ul>
-		<li style = "color : red"><a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록</a></li>
-			
-		<li><a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a></li>
-	</ul>
+		<header style = "text-align: center;">카테고리 목록</header>
+		<table class = "table-bordered">
+			<tr>
+				<td><a href = "${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록</a></td>
+				<td><a href = "${pageContext.request.contextPath}/titles/getTitlesListDistinct">직급 확인</a></td>
+				<td><a href = "${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a></td>
+				<td><a href = "${pageContext.request.contextPath}/employees/getEmployeesListByPage">사원목록 페이징(10명씩)</a></td>
+				<td><a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=asc">이름 오름차순 보기(limit 50)</a></td>
+				<td><a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=desc">이름 내림차순 보기(limit 50)</a></td>
+				<td><a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList">부서-사원목록(20명씩)</a></td>
+			</tr>
+		</table>
+		
+		<hr>
+		<header style = "text-align: center;">통계 목록</header>
+		
+		<table class = "table tablr-horver">
+			<tr>
+				<td><a href = "${pageContext.request.contextPath}/salaries/getSalariesStatistics">연봉 통계값(count, sum, avg, max, min, std)</a></td>
+				<td><a href = "${pageContext.request.contextPath}/employees/getEmployeesCountByGender">사원 수(성별 group by gender)</a></td>
+				<td><a href="${pageContext.request.contextPath}/departments/getDepartmentCountByDeptNo">직원 수(부서별)</a></td>	
+			</tr>
+		</table>
+		
+		<div>
+			<form method = "post" action = "${pageContext.request.contextPath}/employees/getEmployeesListBetween">
+				<input type = "number" name = "begin">~<input type = "number" name = "end">
+				<button type = "submit">사원 목록 between ... and ...</button>
+				(10001~499999)
+			</form>
+		</div>
 	</div>
-	<hr width = "100%" color = "blue" size = "1">
-	<!-- 이름으로 오름차순, 내림차순 보기 -->
-	<div>
-		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=asc">이름 오름차순 보기(limit 50)</a>
-		<a href = "${pageContext.request.contextPath}/employees/getEmployeesListOrderBy?order=desc">이름 내림차순 보기(limit 50)</a>
-	</div>
-	<br>
-	<ul>
-		<li style = "color : red"><a href = "${pageContext.request.contextPath}/titles/getTitlesListDistinct">직급 확인</a></li>
-		<li><a href = "${pageContext.request.contextPath}/salaries/getSalariesStatistics">연봉 통계값(count, sum, avg, max, min, std)</a></li>
-		<li>
-			<a href = "${pageContext.request.contextPath}/employees/getEmployeesCountByGender">사원 수(성별 group by gender)</a>
-		</li>
-		<li>
-			<a href="${pageContext.request.contextPath}/departments/getDepartmentCountByDeptNo">직원 수(부서별)</a>
-		</li>
-		<li>
-			<a href = "${pageContext.request.contextPath}/employees/getEmployeesListByPage">사원목록 페이징(10명씩)</a>
-		</li>
-		<br><br><br>
-		<li>
-			<a href = "${pageContext.request.contextPath}/deptEmp/getDeptEmpList">부서-사원목록(20명씩)</a>
-		</li>
-	</ul>
-	<div>
-		<form method = "post" action = "${pageContext.request.contextPath}/employees/getEmployeesListBetween">
-			<input type = "number" name = "begin">~<input type = "number" name = "end">
-			<button type = "submit">사원 목록 between ... and ...</button>
-			(10001~499999)
-		</form>
-	</div>
+	<hr>
 </div>
 
 </body>
