@@ -99,8 +99,7 @@
 		
 		<table class = "table tablr-horver">
 			<tr>
-				<td><a href = "${pageContext.request.contextPath}/salaries/getSalariesStatistics">연봉 통계값(count, sum, avg, max, min, std)</a></td>
-				<td><a href = "${pageContext.request.contextPath}/employees/getEmployeesCountByGender">사원 수(성별 group by gender)</a></td>
+				<td><a href = "${pageContext.request.contextPath}/salaries/getSalariesStatistics">연봉 통계값 + 성별에 따른 직원 수</a></td>
 				<td><a href="${pageContext.request.contextPath}/departments/getDepartmentCountByDeptNo">직원 수(부서별)</a></td>	
 			</tr>
 		</table>

@@ -20,24 +20,26 @@
 	div {
 		text-align: center;
 	}
-	p {
-		font-size : x-large;
-		background-color: silver;
-	}
 
 </style>
 </head>
 <body>
 <div class = "container" style = "margin: 10">
-	<div style = "background-color: silver">
-		<p>부서별 인원수 입니다</p>
+	<div>
+		<header>부서별 인원수 입니다</header>
 	</div>
-	<div style = float:right><button class = "btn btn-success" onclick = "location.href ='${pageContext.request.contextPath}/index'">메인화면</button></div>
+	
+	<div style = float:right>
+		<button class = "btn btn-success" onclick = "location.href ='${pageContext.request.contextPath}/index'">메인화면</button>
+	</div>
+	<br><br>
 	<table class = "table table-hover" style = "text-align : center">
-	<div></div>
-		<thead class = "table-info">	
-			<th>부서 번호</th>
-			<th>부서 명</th>
+		<thead class = "table-info">
+			<tr>
+				<th>부서 번호</th>
+				<th>부서 명</th>
+				<th>사원 수</th>
+			</tr>	
 		</thead>
 		<tbody>
 					<!-- Department클래스를 새로 만들때부터 get과set을 가짐 -->

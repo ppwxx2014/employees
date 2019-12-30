@@ -19,8 +19,9 @@
 </head>
 <body>
 	<div class = "container" style = "margin: 10">
-	<div style = "background-color: silver">
-		<p>연봉의 조회 목록입니다.</p>
+	<br><br><br>
+	<div style = "text-align: center;">
+		<header>연봉조회 + 성별에 따른 직원 수</header>
 	</div>
 	<div style = float:right><button class = "btn btn-success" onclick= "location.href ='${pageContext.request.contextPath}/index'">메인화면</button>
 	</div>
@@ -28,7 +29,6 @@
 	<br>
 	<hr>
 	<table class = "table table-hover" style = "text-align : center">
-	<div></div>
 		<thead>
 			<tr>
 				<th>연봉 평균</th>
@@ -48,6 +48,23 @@
 					<td>${map.min}</td>
 					<td>${map.std}</td>
 				</tr>
+		</tbody>
+	</table>
+	
+	<table class = "table table-hover" style = "text-align : center">
+		<thead>
+			<tr>
+				<th>성별</th>
+				<th>직원 수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var = "employees" items = "${list}">
+				<tr>
+					<td>${employees.gender}</td>
+					<td>${employees.cnt}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 	
