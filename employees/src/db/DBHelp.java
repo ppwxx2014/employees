@@ -2,11 +2,10 @@ package db;
 
 import java.sql.*;
 
-// DB연결을 도와주는 메소드
+
 public class DBHelp {
-	// 다른곳에서 객체생성을 자유롭게 하기위해 static를 붙여줌
 	
-		// db를 연결해주는 메소드
+		// db연결 메서드
 		public static Connection getConncetion() throws Exception{
 			 Class.forName("org.mariadb.jdbc.Driver");
 			 // Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/maintain0105","maintain0105","maintain0105!");
@@ -14,7 +13,7 @@ public class DBHelp {
 			 return conn;
 		}
 		
-		// db를 종료하는 메소드
+		// db종료 메서드
 		public static void close(ResultSet rs, Statement stmt, Connection conn) {
 			if(rs != null) {
 				try {
